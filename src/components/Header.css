@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.header-parent{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.header-menu{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content:space-between;
+   width: 70%;
+}
+
+.header-logo{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   width: 200px;
+}
+
+.header-logo-title{
+   font-family: 'Open Sans', sans-serif;
+   font-size: 1.8rem;
+   font-weight: 800;
+   color: black;
+   text-decoration: none;
+}
+
+.header-logo-icon{
+   width: 42px;
+}
+
+.header-links{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+}
+
+.header-link{
+   color: black;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 18px;
+}
+
+.logout__btn{
+   color: black;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 16px;
+   border: 1px solid black;
+   background-color: white;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+.logout__btn:hover{
+   color: white;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 16px;
+   border: 1px solid black;
+   background-color: black;
+   padding: 5px 10px;
+}
+
+.register-buttons{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   width: 200px;
+}
+
+.signin{
+   color: white;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 16px;
+   border: 1px solid black;
+   background-color: black;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+.signin:hover{
+   color: black;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 16px;
+   border: 1px solid black;
+   background-color: rgb(200, 200, 200);
+   padding: 5px 10px;
+}
+
+.login{
+   color: black;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 16px;
+   border: 1px solid black;
+   background-color: white;
+   padding: 5px 10px;
+   cursor: pointer;
+}
+
+.login:hover{
+   color: white;
+   text-decoration: none;
+   font-family: 'Open Sans', sans-serif;
+   font-weight: 800;
+   font-size: 16px;
+   border: 1px solid black;
+   background-color: rgb(100, 100, 100);;
+   padding: 5px 10px;
+}
