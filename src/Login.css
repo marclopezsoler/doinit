@@ -80,10 +80,10 @@ h1 {
 
 .password_toggle_1 {
   position: absolute;
-  top: 20%;
+  top: 27.5%;
   right: 0;
   transform: translateY(-50%);
-  transform: translateX(-20%);
+  transform: translateX(-20.5%);
   background-image: url("./assets/noPassword.svg");
   background-repeat: no-repeat;
   background-position: right center;
@@ -101,7 +101,7 @@ h1 {
 
 .password_toggle_2 {
   position: absolute;
-  top: 20%;
+  top: 27.5%;
   right: 0;
   transform: translateY(-50%);
   transform: translateX(-20%);
