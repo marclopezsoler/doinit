@@ -1,11 +1,7 @@
-import "./HeaderBack.css";
-import logoIcon from "../assets/TODO-ICON.png";
 import { Link } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, logout } from "../firebase";
+import "./HeaderBack.css";
 
 function HeaderBack() {
-  const [user, loading, error] = useAuthState(auth);
 
   return (
     <div className="headerBack_parent">

@@ -61,7 +61,7 @@ function Register() {
         <title>doin' it - sign up</title>
       </Helmet>
       <div className="register-container">
-        <h1>Welcome!</h1>
+        <h1>Welcome to doin' it!</h1>
         <div className="registerAll">
           <div className="inputs-box">
             <input

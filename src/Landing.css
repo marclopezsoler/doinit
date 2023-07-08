@@ -5,11 +5,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 100px);
+  margin-top: 100px;
+  height: 125vh;
+}
+
+.first-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }
 
 .home-title {
-   
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.home-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  width: 50%;
 }
 
 .home-button {
@@ -24,25 +46,80 @@
   cursor: pointer;
 }
 
-.first-part{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: -50px;
-}
-
 .home-button:hover {
   color: black;
   background-color: white;
 }
 
-.home-container2{
-  height: 100vh;
-  background-color: black;
+.home-container2 {
+  height: 80vh;
+  margin-top: -20vh;
+  background: url("/src/assets/divider_1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.home-container3{
+.home-container3 {
   height: 100vh;
   background-color: white;
+}
+
+.home-image-first {
+  padding-top: 5vh;
+  width: 60vw;
+}
+
+img {
+  pointer-events: none;
+  z-index: 3;
+}
+
+.home-content{
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content:space-around;
+  color: white;
+}
+
+.reviews{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.star{
+  filter: invert(1);
+}
+
+.brands{
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.brand{
+  height: 4vh;
+}
+
+.brand-logos{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+  justify-items: stretch;
+}
+
+.lg1{
+  height: 8vh;
 }
