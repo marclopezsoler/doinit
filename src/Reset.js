@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { auth, sendPasswordReset } from "./firebase";
 import "./Reset.css";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 function Reset() {
   const [email, setEmail] = useState("");
@@ -16,24 +18,44 @@ function Reset() {
   }, [user, loading]);
 
   return (
-    <div className="reset">
-      <div className="reset__container">
-        <input
-          type="text"
-          className="reset__textBox"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail Address"
-        />
-        <button className="reset__btn" onClick={() => sendPasswordReset(email)}>
-          Send password reset email
-        </button>
-
-        <div>
-          Don't have an account? <Link to="/register">Register</Link> now.
+    <motion.div
+      className="container text-center  bg-black"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35 }}
+    >
+      <Helmet>
+        <title>doin' it - reset</title>
+      </Helmet>
+      <div className="reset">
+        <h2>Reset your password</h2>
+        <div className="reset__container">
+          <div className="inputs-box">
+            <input
+              type="text"
+              className="reset__textBox mail_txt"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail Address"
+            />
+            <button
+              className="reset__btn"
+              onClick={() => sendPasswordReset(email)}
+            >
+              Send password reset email
+            </button>
+          </div>
+          <div className="newAccount">
+            Don't have an account?{" "}
+            <Link to="/register" className="newAccount_link">
+              Register
+            </Link>{" "}
+            now.
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

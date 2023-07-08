@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+.register-container {
+  background-color: white;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  top: 0;
+  background-image: url("./assets/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.registerAll {
+  margin-top: 0vh;
+  margin-bottom: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+}
+
+.login-logo-icon {
+  width: 40px;
+  padding: 20px;
+  padding-bottom: 0px;
+}
+
+.inputs-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.register__textBox {
+  height: 35px;
+  width: 235px;
+  border: 1px solid black;
+  padding: 2px 6px;
+  margin-right: -0.8px;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+.register__textBox2 {
+  height: 35px;
+  width: 250px;
+  border: 1px solid black;
+  padding: 2px 6px;
+  margin-right: -0.8px;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+.login__textBox:focus::placeholder {
+  color: transparent;
+}
+
+.nameTxt {
+  background-image: url("./assets/name.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 4px) center;
+  background-size: 1.15rem;
+  padding-right: 20px;
+}
+
+.mailBox {
+  background-image: url("./assets/email.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 4px) center;
+  background-size: 1.15rem;
+  padding-right: 20px;
+}
+
+.password-box {
+  position: relative;
+}
+
+.password_toggle_1 {
+  position: absolute;
+  top: 27.5%;
+  right: 0;
+  transform: translateY(-50%);
+  transform: translateX(-20.5%);
+  background-image: url("./assets/noPassword.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1.15rem;
+  color: transparent;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.password_toggle_1:hover {
+  opacity: 0.66;
+}
+
+.password_toggle_2 {
+  position: absolute;
+  top: 27.5%;
+  right: 0;
+  transform: translateY(-50%);
+  transform: translateX(-20%);
+  background-image: url("./assets/yesPassword.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 1.15rem;
+  color: transparent;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.password_toggle_2:hover {
+  opacity: 0.66;
+}
+
+.register__btn {
+  height: 35px;
+  width: 60px;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  width: 264px;
+  margin-left: 2px;
+}
+
+.register__btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.register__google {
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+  background-image: url("./assets/google.svg");
+  background-repeat: no-repeat;
+  background-position: calc(0% + 50px) center;
+  background-size: 1.15rem;
+  padding-left: 35px;
+}
+
+.register__google:hover {
+  color: white;
+  background-color: rgb(255, 115, 0);
+  border: 1px solid rgb(255, 115, 0);
+}
+
+.forgot {
+  color: rgb(78, 78, 78);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+  color: #5e5e5e;
+}
+
+.goToLogin {
+  position: absolute;
+  bottom: 10vh;
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login_link {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login_link:hover {
+  color: #5e5e5e;
+}

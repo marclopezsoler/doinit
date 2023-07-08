@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import logoIcon from "./assets/TODO-ICON.png";
 import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -60,76 +62,87 @@ function Login() {
   };
 
   return (
-    <div className="login-container">
-        <h1>Welcome!</h1>
-      <div className="loginAll">
-        <div className="inputs-box">
-          <input
-            type="text"
-            className="login__textBox mail_txt"
-            value={email}
-            onChange={handleEmailChange}
-            onBlur={handleBlur}
-            placeholder="Email Address"
-            autoComplete="email"
-          />
-          <div className="password-box">
+    <motion.div
+      className="container text-center  bg-black"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.35 }}
+    >
+      <Helmet>
+        <title>doin' it - login</title>
+      </Helmet>
+      <div className="login-container">
+        <h1>Welcome back!</h1>
+        <div className="loginAll">
+          <div className="inputs-box">
             <input
-              type={showPassword ? "text" : "password"}
-              className="login__textBox2"
-              value={password}
-              onChange={handlePasswordChange}
-              placeholder="Password"
+              type="text"
+              className="login__textBox mail_txt"
+              value={email}
+              onChange={handleEmailChange}
+              onBlur={handleBlur}
+              placeholder="Email Address"
+              autoComplete="email"
             />
+            <div className="password-box">
+              <input
+                type={showPassword ? "text" : "password"}
+                className="login__textBox2"
+                value={password}
+                onChange={handlePasswordChange}
+                placeholder="Password"
+              />
+              <button
+                onClick={togglePasswordVisibility}
+                className={
+                  showPassword ? "password_toggle_2" : "password_toggle_1"
+                }
+              >
+                {showPassword ? "H" : "S"}
+              </button>
+            </div>
             <button
-              onClick={togglePasswordVisibility}
-              className={
-                showPassword ? "password_toggle_2" : "password_toggle_1"
-              }
+              className="login_btn"
+              onClick={() => logInWithEmailAndPassword(email, password)}
             >
-              {showPassword ? "H" : "S"}
+              Login
+            </button>
+            <button
+              className="login_btn login__google"
+              onClick={signInWithGoogle}
+            >
+              Login with Google
             </button>
           </div>
-          <button
-            className="login_btn"
-            onClick={() => logInWithEmailAndPassword(email, password)}
-          >
-            Login
-          </button>
-          <button
-            className="login_btn login__google"
-            onClick={signInWithGoogle}
-          >
-            Login with Google
-          </button>
-        </div>
-        {showSuggestions && filteredSuggestions.length > 0 && (
+          {showSuggestions && filteredSuggestions.length > 0 && (
+            <div>
+              <p>Suggested Emails:</p>
+              {filteredSuggestions.map((suggestion) => (
+                <button
+                  key={suggestion}
+                  onClick={() => handleStoredEmailClick(suggestion)}
+                >
+                  {suggestion}
+                </button>
+              ))}
+            </div>
+          )}
           <div>
-            <p>Suggested Emails:</p>
-            {filteredSuggestions.map((suggestion) => (
-              <button
-                key={suggestion}
-                onClick={() => handleStoredEmailClick(suggestion)}
-              >
-                {suggestion}
-              </button>
-            ))}
+            <Link to="/reset" className="forgot">
+              Forgot Password?
+            </Link>
           </div>
-        )}
-        <div>
-          <Link to="/reset" className="forgot">
-            Forgot Password?
-          </Link>
+        </div>
+        <div className="newAccount">
+          Don't have an account?{" "}
+          <Link to="/register" className="newAccount_link">
+            Register
+          </Link>{" "}
+          now.
         </div>
       </div>
-      <div className="newAccount">
-        Don't have an account?{" "}
-        <Link to="/register" className="newAccount_link">
-          Register
-        </Link>{" "}
-        now.
-      </div>
-    </div>
+    </motion.div>
   );
 }
 

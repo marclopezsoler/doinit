@@ -12,6 +12,7 @@
    align-items: center;
    justify-content:space-between;
    width: 70%;
+   height: 100px;
 }
 
 .header-logo{
@@ -49,6 +50,10 @@
    font-family: 'Open Sans', sans-serif;
    font-weight: 800;
    font-size: 18px;
+}
+
+.header-link:hover {
+   text-decoration: underline;
 }
 
 .logout__btn{
