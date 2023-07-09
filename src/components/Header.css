@@ -1,160 +1,240 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
-.header-parent{
-   display: flex;
-   align-items: center;
-   justify-content: center;
+.header-parent {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-menu{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content:space-between;
-   width: 70%;
-   height: 100px;
+.desktop-menu {
+  display: block;
 }
 
-.header-logo{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   gap: 10px;
-   width: 200px;
-   text-decoration: none;
+.mobile-menu {
+  display: none;
 }
 
-.header-logo-title{
-   font-family: 'Open Sans', sans-serif;
-   font-size: 1.8rem;
-   font-weight: 800;
-   color: black;
-   text-decoration: none;
+.header-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 70vw;
+  height: 100px;
 }
 
-.header-logo-title:hover{
-   text-decoration: none;
+.header-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 200px;
+  text-decoration: none;
 }
 
-.header-logo-icon{
-   width: 42px;
+.header-logo-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: black;
+  text-decoration: none;
 }
 
-.header-links{
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: center;
-   gap: 20px;
+.header-logo-icon {
+  width: 42px;
 }
 
-.header-link{
-   color: black;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 18px;
+.header-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
-.header-link:hover {
-   text-decoration: underline;
+.header-link {
+  color: black;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
 }
 
-.logout__btn{
-   color: black;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 16px;
-   border: 1px solid black;
-   background-color: white;
-   padding: 5px 10px;
-   cursor: pointer;
+.header-link-mobile {
+  color: white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 26px;
 }
 
-.logout__btn:hover{
-   color: white;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 16px;
-   border: 1px solid black;
-   background-color: black;
-   padding: 5px 10px;
+.logout__btn {
+  color: black;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.register-buttons{
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   gap: 20px;
-   width: 225px;
+.logout__btn:hover {
+  color: white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: black;
+  padding: 5px 10px;
 }
 
-.signin{
-   color: white;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 16px;
-   border: 1px solid black;
-   background-color: black;
-   padding: 5px 10px;
-   cursor: pointer;
+.register-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 225px;
 }
 
-.signin:hover{
-   color: black;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 16px;
-   border: 1px solid black;
-   background-color: rgb(200, 200, 200);
-   padding: 5px 10px;
+.register-buttons-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
 }
 
-.login{
-   color: black;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 16px;
-   border: 1px solid black;
-   background-color: white;
-   padding: 5px 10px;
-   cursor: pointer;
+.signin {
+  color: white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: black;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 
-.login:hover{
-   color: white;
-   text-decoration: none;
-   font-family: 'Open Sans', sans-serif;
-   font-weight: 800;
-   font-size: 16px;
-   border: 1px solid black;
-   background-color: rgb(100, 100, 100);;
-   padding: 5px 10px;
+.signin:hover {
+  color: black;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: rgb(200, 200, 200);
+  padding: 5px 10px;
+}
+
+.login {
+  color: black;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.login:hover {
+  color: white;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: rgb(100, 100, 100);
+  padding: 5px 10px;
 }
 
 .headerBack_parent {
-   display: flex;
-   position: absolute;
-   top: 40px;
-   left: 60px;
-   width: 100vw;
- }
- 
- .headerBack_link {
-    color: black;
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
- }
- 
- .headerBack_link:hover {
-    text-decoration: underline;
- }
+  display: flex;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  width: 100vw;
+}
+
+.headerBack_parent-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.headerBack_link {
+  color: black;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.headerBack_link:hover {
+  text-decoration: underline;
+}
+
+.burger-menu-appear {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10%;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  color: white;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.menu-cross {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  .header-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+  }
+}

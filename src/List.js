@@ -197,7 +197,7 @@ function List() {
       <Helmet>
         <title>doin' it - dashboard</title>
       </Helmet>
-      <div className="App">
+      <div className="list-app">
         <div>
           <h2 className="welcome-name">
             Hi <UserDetails />!
@@ -271,7 +271,7 @@ function List() {
                   {item.name}
                 </label>
               </div>
-              <a onClick={() => deleteElement(item.id)}>
+              <a onClick={() => deleteElement(item.id)} className="image-trash-parent">
                 <img src={trash} className="image-trash"></img>
               </a>
             </div>

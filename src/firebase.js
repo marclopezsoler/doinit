@@ -50,12 +50,13 @@ const firebaseConfig = {
      alert(err.message);
    }
  };
+
  const logInWithEmailAndPassword = async (email, password) => {
    try {
      await signInWithEmailAndPassword(auth, email, password);
    } catch (err) {
      console.error(err);
-     alert(err.message);
+    //  alert(err.message);
    }
  };
  const registerWithEmailAndPassword = async (name, email, password) => {
@@ -70,16 +71,16 @@ const firebaseConfig = {
      });
    } catch (err) {
      console.error(err);
-     alert(err.message);
+    //  alert('Please, complete al fields with the correct information.');
    }
  };
  const sendPasswordReset = async (email) => {
    try {
      await sendPasswordResetEmail(auth, email);
-     alert("Password reset link sent!");
+     return { success: true, message: "Password reset link sent!" };
    } catch (err) {
      console.error(err);
-     alert(err.message);
+     return { success: false, message: "The email you entered is not inside our database" };
    }
  };
  const logout = () => {

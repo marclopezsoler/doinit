@@ -17,6 +17,8 @@ function Login() {
   const [storedEmails, setStoredEmails] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const [errorName, setErrorName] = useState("");
+
   useEffect(() => {
     const storedEmails = localStorage.getItem("storedEmails");
     if (storedEmails) {
@@ -59,6 +61,15 @@ function Login() {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const checkData = () => {
+    if (!email || !password) {
+      setErrorName("Please, complete all the fields");
+      setTimeout(() => {
+        setErrorName("");
+      }, 5000);
+    }
   };
 
   return (
@@ -104,7 +115,10 @@ function Login() {
             </div>
             <button
               className="login_btn"
-              onClick={() => logInWithEmailAndPassword(email, password)}
+              onClick={() => {
+                logInWithEmailAndPassword(email, password);
+                checkData();
+              }}
             >
               Login
             </button>
@@ -141,6 +155,11 @@ function Login() {
           </Link>{" "}
           now.
         </div>
+        {errorName ? (
+          <div className="error-popup">
+            <p>{errorName}</p>
+          </div>
+        ) : null}
       </div>
     </motion.div>
   );

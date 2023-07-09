@@ -64,6 +64,7 @@ function Landing() {
                 </div>
                 <p>App Store and Google Play</p>
               </div>
+              <span className="separator"></span>
               <div className="brands">
                 <p>USED BY INDIVIDUALS AND TEAMS AT</p>
                 <div className="brand-logos">
@@ -105,11 +106,13 @@ function Landing() {
               </div>
               <img src={secondary_image_1} className="secondary-image" />
             </div>
-            <div className="secondary-content">
+            <div className="secondary-content2">
               <img src={secondary_image_2} className="secondary-image" />
               <div className="secondary-content-texts">
                 <p className="secondary-tag">Clear your mind</p>
-                <h2 className="secondary-title">Reach that mental clarity you’ve been longing for.</h2>
+                <h2 className="secondary-title">
+                  Reach that mental clarity you’ve been longing for.
+                </h2>
                 <p className="secondary-text">
                   Your to-do lists are automatically sorted into Today, Upcoming
                   and custom Filter views to help you focus on your most
@@ -119,8 +122,9 @@ function Landing() {
             </div>
           </section>
           <section className="home-container4">
-            <h2>Achieve peace of mind with doin' it</h2>
-            {user ? (
+            <div className="home-container4-child">
+              <h2>Achieve peace of mind with doin' it</h2>
+              {user ? (
                 <Link to="/dashboard" className="home-button-2" replace>
                   Start free today
                 </Link>
@@ -129,6 +133,7 @@ function Landing() {
                   Start free today
                 </Link>
               )}
+            </div>
           </section>
         </div>
       </div>

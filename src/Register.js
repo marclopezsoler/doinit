@@ -19,10 +19,19 @@ function Register() {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [errorName, setErrorName] = useState("");
+
+  const checkData = () => {
+    if (!name || !email || !password) {
+      setErrorName("Please, complete all the fields");
+      setTimeout(() => {
+        setErrorName("");
+      }, 5000);
+    }
+  };
 
   const register = () => {
     if (!name) {
-      alert("Please enter name");
       return;
     }
 
@@ -95,7 +104,13 @@ function Register() {
                 {showPassword ? "H" : "S"}
               </button>
             </div>
-            <button className="register__btn" onClick={register}>
+            <button
+              className="register__btn"
+              onClick={() => {
+                register();
+                checkData();
+              }}
+            >
               Register
             </button>
             <button
@@ -106,9 +121,18 @@ function Register() {
             </button>
           </div>
           <div className="goToLogin">
-            Already have an account? <Link to="/login" className="login_link">Login</Link> now.
+            Already have an account?{" "}
+            <Link to="/login" className="login_link">
+              Login
+            </Link>{" "}
+            now.
           </div>
         </div>
+        {errorName ? (
+          <div className="error-popup">
+            <p>{errorName}</p>
+          </div>
+        ) : null}
       </div>
     </motion.div>
   );
