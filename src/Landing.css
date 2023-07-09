@@ -51,21 +51,42 @@
   background-color: white;
 }
 
+.home-button-2 {
+  color: black;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  border: 1px solid white;
+  background-color: white;
+  padding: 7.5px 12.5px;
+  cursor: pointer;
+}
+
+.home-button-2:hover {
+  color: white;
+  background-color: black;
+}
+
 .home-container2 {
-  height: 80vh;
-  margin-top: -20vh;
-  background: url("/src/assets/divider_1.png");
+  height: 40vh;
   background-position: center;
   background-repeat: no-repeat;
-  background-size:contain;
+  background-size: contain;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: black;
 }
 
 .home-container3 {
-  height: 100vh;
+  height: 100%;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
 }
 
 .home-image-first {
@@ -78,16 +99,16 @@ img {
   z-index: 3;
 }
 
-.home-content{
+.home-content {
   width: 60%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content:space-around;
+  justify-content: space-around;
   color: white;
 }
 
-.reviews{
+.reviews {
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -97,21 +118,21 @@ img {
   font-size: 18px;
 }
 
-.star{
+.star {
   filter: invert(1);
 }
 
-.brands{
+.brands {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   font-size: 18px;
 }
 
-.brand{
+.brand {
   height: 4vh;
 }
 
-.brand-logos{
+.brand-logos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
@@ -120,6 +141,57 @@ img {
   justify-items: stretch;
 }
 
-.lg1{
+.lg1 {
   height: 8vh;
+}
+
+.secondary-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+  gap: 75px;
+  padding: 5%;
+}
+
+.secondary-content-texts{
+  width: 50%;
+}
+
+.secondary-image {
+  width: 30%;
+}
+
+.secondary-tag {
+  padding: 2px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.secondary-title {
+  padding: 2px;
+  margin: 0;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.secondary-text {
+  padding: 2px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.home-container4{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  padding: 5%;
 }

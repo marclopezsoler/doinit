@@ -28,7 +28,7 @@ function Login() {
     if (loading) {
       return;
     }
-    if (user) navigate("/");
+    if (user) navigate("/dashboard");
   }, [user, loading]);
 
   useEffect(() => {

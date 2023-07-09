@@ -9,41 +9,45 @@ function Header() {
 
   return (
     <div className="header-parent">
-      <div className="header-menu">
-        <Link to="/" className="header-link">
-          <div className="header-logo">
-            <img src={logoIcon} className="header-logo-icon" />
-            <p className="header-logo-title">doin' it</p>
-          </div>
-        </Link>
-        <div className="header-links">
-          <Link to="/features" className="header-link">
-            features
+      {window.location.pathname === "/" ||
+      window.location.pathname === "/features" ||
+      window.location.pathname === "/platform" ||
+      window.location.pathname === "/pricing" ||
+      window.location.pathname === "/dashboard" ? (
+        <div className="header-menu">
+          <Link to="/" className="header-link">
+            <div className="header-logo">
+              <img src={logoIcon} className="header-logo-icon" />
+              <p className="header-logo-title">doin' it</p>
+            </div>
           </Link>
-          <Link to="/platform" className="header-link">
-            platform
-          </Link>
-          <Link to="/pricing" className="header-link">
-            pricing
+          {!user ? (
+            <div className="register-buttons">
+              <Link to="/register" className="header-link signin">
+                sign up
+              </Link>
+              <Link to="/login" className="header-link login">
+                log in
+              </Link>
+            </div>
+          ) : (
+            <div className="register-buttons">
+              <Link to="/dashboard" className="header-link signin">
+                dashboard
+              </Link>
+              <button className="header-link login" onClick={logout}>
+                log out
+              </button>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="headerBack_parent">
+          <Link to="/" className="headerBack_link">
+            back home
           </Link>
         </div>
-        {!user ? (
-          <div className="register-buttons">
-            <Link to="/register" className="header-link signin">
-              Sign Up
-            </Link>
-            <Link to="/login" className="header-link login">
-              Log In
-            </Link>
-          </div>
-        ) : (
-          <div className="register-buttons">
-          <button className="logout__btn" onClick={logout}>
-            log out
-          </button>
-          </div>
-        )}
-      </div>
+      )}
     </div>
   );
 }
