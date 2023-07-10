@@ -129,6 +129,20 @@ input[type="checkbox"]{
   font-family: 'Open Sans', sans-serif;
 }
 
+.item-text{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5px;
+}
+
+.date{
+  font-size: 14px;
+  font-weight: lighter;
+  padding: 0;
+  margin: 0;
+}
+
 .element:hover .cross { display: block; }
 
 .buttons{
@@ -193,6 +207,32 @@ input[type="checkbox"]{
   display: inline;
 }
 
-@media only screen and (min-width: 1250px) {
+.buttons-mobile{
+  display: none;
+}
 
+@media only screen and (max-width: 500px) {
+ .buttons{
+  display: none;
+ } 
+
+ .buttons-mobile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+ }
+
+ .button3-mobile{
+  height: 28.6px;
+  width: 60px;
+  border: 1px solid black;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  width: 80px;
+ }
 }

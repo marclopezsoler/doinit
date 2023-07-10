@@ -1,40 +1,36 @@
-// UserDetails.js
-import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import { auth, db } from "./firebase";
-import { query, collection, getDocs, where } from "firebase/firestore";
+import { useState, useEffect } from "react";
+import { collection, doc, getDoc, getFirestore } from "firebase/firestore";
+import { auth } from "./firebase";
 
 function UserDetails() {
-  const [user, loading] = useAuthState(auth);
-  const [name, setName] = useState("");
-  const navigate = useNavigate();
-
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-
-      const fullName = data.name;
-      const spaceIndex = fullName.indexOf(" ");
-      const firstName =
-        spaceIndex !== -1 ? fullName.substring(0, spaceIndex) : fullName;
-
-      setName(firstName);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const [displayName, setDisplayName] = useState("");
 
   useEffect(() => {
-    if (loading) return;
-    if (!user) return navigate("/login");
+    const fetchUserData = async () => {
+      try {
+        const db = getFirestore();
+        const userDocRef = doc(collection(db, "users"), auth.currentUser.uid);
+        const userDocSnapshot = await getDoc(userDocRef);
 
-    fetchUserName();
-  }, [user, loading]);
+        console.log("User Doc Snapshot:", userDocSnapshot.exists());
 
-  return (<p style={{ display: 'inline' }}>{name}</p>);
+        if (userDocSnapshot.exists()) {
+          console.log("User Document Data:", userDocSnapshot.data());
+          const userData = userDocSnapshot.data();
+          setDisplayName(userData.name);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    // Fetch user data whenever auth.currentUser changes
+    if (auth.currentUser) {
+      fetchUserData();
+    }
+  }, [auth.currentUser]); // Add auth.currentUser as a dependency
+
+  return <>{displayName}</>;
 }
 
 export default UserDetails;

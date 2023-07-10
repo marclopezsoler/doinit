@@ -17,10 +17,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
-import UserDetails from "./UserDetails";
 import trash from "./assets/trash.svg";
 import Loader from "./components/Loader";
 import { auth, db } from "./firebase";
+import moment from "moment";
+import UserDetails from "./UserDetails";
 
 function List() {
   const [text, setText] = useState("");
@@ -39,29 +40,27 @@ function List() {
   async function addElement() {
     if (text !== "") {
       try {
-        const currentDate = new Date().toISOString(); // Get the current date and time
+        const currentDate = new Date().toISOString();
         const docRef = await addDoc(collection(db, "todos"), {
           name: text,
           checked: false,
-          userId: user.uid, // Set the userId field to the current user's ID
-          createdAt: currentDate, // Add the current date and time as the "createdAt" field
+          userId: user.uid,
+          createdAt: currentDate,
         });
         console.log("Document written with ID: ", docRef.id);
-  
-        // Fetch user-specific items again after adding a new item
+
         await fetchUserItems();
       } catch (e) {
         console.error("Error adding document: ", e);
         alert("An error occurred while adding the item: " + e.message);
       }
-  
+
       setText("");
       if (activeButton !== 1) {
         handleButtonClick(1);
       }
     }
   }
-  
 
   const deleteElement = async (itemId) => {
     try {
@@ -157,21 +156,22 @@ function List() {
 
   const fetchUserItems = async () => {
     try {
-      const q = query(
-        collection(db, "todos"),
-        where("userId", "==", user.uid),
-        // orderBy("createdAt", "desc"),
-      );
+      const q = query(collection(db, "todos"), where("userId", "==", user.uid));
       const querySnapshot = await getDocs(q);
-      const items = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-        checked: doc.data().checked === "true",
-      }));
-    
+      const currentDate = moment();
+      const items = querySnapshot.docs.map((doc) => {
+        const createdAt = moment(doc.data().createdAt);
+        const formattedDate = createdAt.format("HH:mm, DD MMM YYYY");
+        return {
+          id: doc.id,
+          ...doc.data(),
+          checked: doc.data().checked === "true",
+          createdAt: formattedDate,
+        };
+      });
       setToDoList(items);
       setFilteredToDoList(items);
-  
+
       const updatedCheckedItems = {};
       items.forEach((item) => {
         updatedCheckedItems[item.id] = item.checked;
@@ -181,8 +181,7 @@ function List() {
       alert("An error occurred while fetching the items");
     }
   };
-  
-  
+
   useEffect(() => {
     if (loading) {
       setToDoList(null);
@@ -198,7 +197,7 @@ function List() {
     if (toDoList && toDoList.length > 0) {
       handleButtonClick(activeButton);
     }
-  }, [toDoList, activeButton]);  
+  }, [toDoList, activeButton]);
 
   return (
     <motion.div
@@ -235,29 +234,67 @@ function List() {
               </button>
             </div>
             {toDoList.length > 0 ? (
-              <div className="buttons">
-                <button
-                  className={`button2 ${activeButton === 1 ? "active" : ""}`}
-                  onClick={() => handleButtonClick(1)}
-                >
-                  Show all
-                </button>
-                <button
-                  className={`button2 ${activeButton === 2 ? "active" : ""}`}
-                  onClick={() => handleButtonClick(2)}
-                >
-                  Pending
-                </button>
-                <button
-                  className={`button2 ${activeButton === 3 ? "active" : ""}`}
-                  onClick={() => handleButtonClick(3)}
-                >
-                  Completed
-                </button>
-                <button className="button3" onClick={deleteAllElements}>
-                  Clear
-                </button>
-              </div>
+              <>
+                <div className="buttons">
+                  <button
+                    className={`button2 ${activeButton === 1 ? "active" : ""}`}
+                    onClick={() => handleButtonClick(1)}
+                  >
+                    Show all
+                  </button>
+                  <button
+                    className={`button2 ${activeButton === 2 ? "active" : ""}`}
+                    onClick={() => handleButtonClick(2)}
+                  >
+                    Pending
+                  </button>
+                  <button
+                    className={`button2 ${activeButton === 3 ? "active" : ""}`}
+                    onClick={() => handleButtonClick(3)}
+                  >
+                    Completed
+                  </button>
+                  <button className="button3" onClick={deleteAllElements}>
+                    Clear
+                  </button>
+                </div>
+                <div className="buttons-mobile">
+                  <div>
+                    <button
+                      className={`button2 ${
+                        activeButton === 1 ? "active" : ""
+                      }`}
+                      onClick={() => handleButtonClick(1)}
+                    >
+                      Show all
+                    </button>
+                    <button
+                      className={`button2 ${
+                        activeButton === 2 ? "active" : ""
+                      }`}
+                      onClick={() => handleButtonClick(2)}
+                    >
+                      Pending
+                    </button>
+                    <button
+                      className={`button2 ${
+                        activeButton === 3 ? "active" : ""
+                      }`}
+                      onClick={() => handleButtonClick(3)}
+                    >
+                      Completed
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className="button3-mobile"
+                      onClick={deleteAllElements}
+                    >
+                      Clear
+                    </button>
+                  </div>
+                </div>
+              </>
             ) : (
               <></>
             )}
@@ -281,13 +318,17 @@ function List() {
                       checked={checkedItems[item.id] || false}
                       onChange={(event) => handleCheckboxChange(event, item.id)}
                     />
-
-                    <label
-                      htmlFor={`checkbox-${item.id}`}
-                      className={`item ${checkedItems[item.id] ? "done" : ""}`}
-                    >
-                      {item.name}
-                    </label>
+                    <div className="item-text">
+                      <label
+                        htmlFor={`checkbox-${item.id}`}
+                        className={`item ${
+                          checkedItems[item.id] ? "done" : ""
+                        }`}
+                      >
+                        {item.name}
+                      </label>
+                      <p className="date">{item.createdAt}</p>
+                    </div>
                   </div>
                   <a
                     onClick={() => deleteElement(item.id)}

@@ -5,7 +5,7 @@ function Footer({ isLoading }) {
   return (
     <>
       {window.location.pathname === "/" ? (
-        <div className={`footer footer-home ${isLoading ? "show" : "hide"}`}>
+        <div className={`footer footer-home ${isLoading ? "hide" : "show"}`}>
           <p className="footer-text">
             Webiste created by{" "}
             <a
@@ -18,7 +18,7 @@ function Footer({ isLoading }) {
           </p>
         </div>
       ) : (
-        <div className={`footer footer-dashboard ${isLoading ? "show" : "hide"}`}>
+        <div className={`footer footer-dashboard ${isLoading ? "hide" : "show"}`}>
           <p className="footer-text">
             Webiste created by{" "}
             <a
