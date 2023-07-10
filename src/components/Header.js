@@ -84,12 +84,25 @@ function Header() {
                 <a className="header-logo" onClick={toggleMenu}>
                   <img src={cross} width={36} id="menu-cross" />
                 </a>
-                <Link to="/register" className="header-link-mobile">
-                  sign up
-                </Link>
-                <Link to="/login" className="header-link-mobile">
-                  log in
-                </Link>
+                {!user ? (
+                  <>
+                    <Link to="/register" className="header-link-mobile">
+                      sign up
+                    </Link>
+                    <Link to="/login" className="header-link-mobile">
+                      log in
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/dashboard" className="header-link-mobile">
+                      dashboard
+                    </Link>
+                    <button className="header-link-mobile-button" onClick={logout}>
+                      log out
+                    </button>
+                  </>
+                )}
               </div>
             </div>
           </>

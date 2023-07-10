@@ -8,23 +8,43 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: red;
-  height: 2.5rem;
+  background-color: black;
+  height: 3rem;
+}
+
+.footer-home{
+  background-color: black;
+  color: white;
+}
+
+.footer-dashboard{
+  background-color: white;
+  color: black;
 }
 
 .footer-text {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  color: black;
 }
 
-.footer-link {
+.footer-link-home {
   text-decoration: none;
-  color: black;
   font-weight: 600;
   transition: 0.35s;
+  color: white;
 }
 
-.footer-link:hover {
-  color: rgb(122, 122, 122);
+.footer-link-home:hover {
+  color: rgb(163, 163, 163);
+}
+
+.footer-link-dashboard {
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.35s;
+  color: black;
+}
+
+.footer-link-dashboard:hover {
+  color: rgb(112, 112, 112);
 }

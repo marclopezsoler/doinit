@@ -74,6 +74,15 @@ h1 {
   padding-right: 20px;
 }
 
+.register-title{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-wrap: break-word;
+}
+
 .mailBox {
   background-image: url("./assets/email.svg");
   background-repeat: no-repeat;
