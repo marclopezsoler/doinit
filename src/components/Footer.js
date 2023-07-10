@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import "./Footer.css";
 
-function Footer() {
+function Footer({ isLoading }) {
   return (
     <>
       {window.location.pathname === "/" ? (
-        <div className="footer footer-home">
+        <div className={`footer footer-home ${isLoading ? "show" : "hide"}`}>
           <p className="footer-text">
             Webiste created by{" "}
             <a
@@ -18,7 +18,7 @@ function Footer() {
           </p>
         </div>
       ) : (
-        <div className="footer footer-dashboard">
+        <div className={`footer footer-dashboard ${isLoading ? "show" : "hide"}`}>
           <p className="footer-text">
             Webiste created by{" "}
             <a

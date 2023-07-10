@@ -48,3 +48,11 @@
 .footer-link-dashboard:hover {
   color: rgb(112, 112, 112);
 }
+
+.show{
+  display: block;
+}
+
+.hide{
+  display: none;
+}

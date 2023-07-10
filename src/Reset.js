@@ -6,6 +6,7 @@ import { auth, sendPasswordReset } from "./firebase";
 import "./Reset.css";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
+import Loader from "./components/Loader";
 
 function Reset() {
   const [email, setEmail] = useState("");
@@ -46,6 +47,9 @@ function Reset() {
       <Helmet>
         <title>doin' it - reset</title>
       </Helmet>
+      {loading ? (
+        <Loader />
+      ) : (
       <div className="reset">
         <h2>Reset your password</h2>
         <div className="reset__container">
@@ -84,6 +88,7 @@ function Reset() {
           </div>
         )}
       </div>
+      )}
     </motion.div>
   );
 }
