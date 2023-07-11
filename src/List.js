@@ -4,24 +4,22 @@ import {
   deleteDoc,
   doc,
   getDocs,
-  limit,
-  orderBy,
   query,
   updateDoc,
   where,
-  writeBatch,
+  writeBatch
 } from "firebase/firestore";
 import { motion } from "framer-motion";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import "./List.css";
+import UserDetails from "./UserDetails";
 import trash from "./assets/trash.svg";
 import Loader from "./components/Loader";
 import { auth, db } from "./firebase";
-import moment from "moment";
-import UserDetails from "./UserDetails";
 
 function List() {
   const [text, setText] = useState("");
@@ -48,19 +46,38 @@ function List() {
           createdAt: currentDate,
         });
         console.log("Document written with ID: ", docRef.id);
-
-        await fetchUserItems();
+  
+        const newItem = {
+          id: docRef.id,
+          name: text,
+          checked: false,
+          userId: user.uid,
+          createdAt: moment(currentDate).format("HH:mm, DD MMM YYYY"),
+        };
+  
+        setToDoList((prevList) => [newItem, ...prevList]);
+        
+        // Update the filteredToDoList based on the activeButton
+        if (activeButton === 1) {
+          setFilteredToDoList((prevList) => [newItem, ...prevList]);
+        } else if (activeButton === 2) {
+          setFilteredToDoList((prevList) =>
+            newItem.checked ? prevList : [newItem, ...prevList]
+          );
+        } else if (activeButton === 3) {
+          setFilteredToDoList((prevList) =>
+            newItem.checked ? [newItem, ...prevList] : prevList
+          );
+        }
+  
+        setText("");
       } catch (e) {
         console.error("Error adding document: ", e);
         alert("An error occurred while adding the item: " + e.message);
       }
-
-      setText("");
-      if (activeButton !== 1) {
-        handleButtonClick(1);
-      }
     }
   }
+  
 
   const deleteElement = async (itemId) => {
     try {
@@ -154,7 +171,7 @@ function List() {
     }
   };
 
-  const fetchUserItems = async () => {
+  async function fetchUserItems() {
     try {
       const q = query(collection(db, "todos"), where("userId", "==", user.uid));
       const querySnapshot = await getDocs(q);
@@ -171,7 +188,7 @@ function List() {
       });
       setToDoList(items);
       setFilteredToDoList(items);
-
+  
       const updatedCheckedItems = {};
       items.forEach((item) => {
         updatedCheckedItems[item.id] = item.checked;
@@ -180,7 +197,7 @@ function List() {
     } catch (err) {
       alert("An error occurred while fetching the items");
     }
-  };
+  }
 
   useEffect(() => {
     if (loading) {
