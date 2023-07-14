@@ -104,7 +104,7 @@ function Landing() {
                   </h2>
                   <p className="secondary-text">
                     Add tasks like “Read work emails every day at 10am” to fill
-                    your to-do list in seconds using Todoist’s powerful natural
+                    your to-do list in seconds using doin' it's powerful natural
                     language recognition and recurring dates.
                   </p>
                 </div>
