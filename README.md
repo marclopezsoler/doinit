@@ -1,4 +1,4 @@
-![TODO-ICON](https://github.com/marclopezsoler/doinit/assets/75423109/12e1c350-80c3-461a-a6e2-84f4f20019e6)
+![TODO-ICON](https://github.com/marclopezsoler/doinit/assets/75423109/12e1c350-80c3-461a-a6e2-84f4f20019e6 | width=20)
 
 ## DOIN' IT WEBSITE
 
