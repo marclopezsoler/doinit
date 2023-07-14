@@ -18,13 +18,7 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-   apiKey: "AIzaSyD8kL17igbt9ZzghIFrTCeF_J1AUugzxyg",
-   authDomain: "to-do-app-a517f.firebaseapp.com",
-   projectId: "to-do-app-a517f",
-   storageBucket: "to-do-app-a517f.appspot.com",
-   messagingSenderId: "616433025369",
-   appId: "1:616433025369:web:92f95de81f27138f550c48",
-   measurementId: "G-Q2GSJHSN81"
+
  };
 
  const app = initializeApp(firebaseConfig);
