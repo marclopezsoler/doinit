@@ -18,7 +18,7 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-
+  //ADD YOUR FIREBASE CONFIG
  };
 
  const app = initializeApp(firebaseConfig);
