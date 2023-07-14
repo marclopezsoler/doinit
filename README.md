@@ -1,6 +1,4 @@
-![TODO-ICON](https://github.com/marclopezsoler/doinit/assets/75423109/12e1c350-80c3-461a-a6e2-84f4f20019e6 =250x250)
-
-## DOIN' IT WEBSITE
+## <img src="https://github.com/marclopezsoler/doinit/assets/75423109/196b3dd5-10da-44ca-8b37-9289f0058a8a" data-canonical-src="https://github.com/marclopezsoler/doinit/assets/75423109/196b3dd5-10da-44ca-8b37-9289f0058a8a" width="30" height="30" />  DOIN' IT WEBSITE
 
 Discover the ficticious world’s #1 task manager and to-do list app.
 
